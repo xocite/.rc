@@ -1,0 +1,56 @@
+# Default screens
+shelltitle bash
+screen -t default 1 bash 
+screen -t browser bash 
+screen -t music bash 
+screen -t topology bash 
+screen -t bitnami bash
+
+# Keybindings for local sessions
+bindkey "^[[1;5D" prev # ctrl-left 
+bindkey "^[[1;5C" next # ctrl-right
+
+# Keybindings for nested screen sessions
+#bindkey "^i" meta
+bindkey "^[[1;5A" stuff ^ap # ctrl-up
+bindkey "^[[1;5B" stuff ^an # ctrl-down
+bindkey "^`" stuff ^a # meta
+
+# Keybindings for managing regions, windows
+bind h focus left
+bind j focus down
+bind k focus up
+bind l focus right
+bind t focus top 
+bind b focus bottom
+bind = resize =
+bind + resize +3
+bind - resize -3
+
+# Rename kill binding
+bind ^k
+bind k
+
+# Behavior
+term screen-256color
+startup_message off
+vbell off
+altscreen on
+scrollback 30000
+defscrollback 30000
+compacthist on
+nethack on
+
+# Status
+hardstatus alwayslastline
+hardstatus string '%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<%=%c'
+
+# Naming windows
+dynamictitle off
+
+# %H: host name
+# %w: all windows, with -L and +L windows before and after, respectively
+# %=: padding
+# %{= .d}: background/foreground colour
+# %c: 24h time
+
