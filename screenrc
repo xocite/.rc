@@ -1,10 +1,16 @@
 # Default screens
 shelltitle bash
-screen -t default 1 bash 
-screen -t browser bash 
-screen -t music bash 
-screen -t topology bash 
-screen -t bitnami bash
+screen -t root 0 //group
+select 0
+screen -t local 1 //group
+screen -t local 2
+select 0
+screen -t mail 3 //group
+screen -t local 4 
+select 0
+screen -t remote 5 //group
+screen -t remote 6
+select 2
 
 # Keybindings for local sessions
 bindkey "^[[1;5D" prev # ctrl-left 
@@ -12,9 +18,22 @@ bindkey "^[[1;5C" next # ctrl-right
 
 # Keybindings for nested screen sessions
 #bindkey "^i" meta
-bindkey "^[[1;5A" stuff ^ap # ctrl-up
-bindkey "^[[1;5B" stuff ^an # ctrl-down
+bindkey "^[[1;5B" stuff ^ap # ctrl-down
+bindkey "^[[1;5A" stuff ^an # ctrl-up
 bindkey "^`" stuff ^a # meta
+
+# Keybindings for windows > 9
+bind -c selectwindow 0 select 10
+bind -c selectwindow 1 select 11
+bind -c selectwindow 2 select 12
+bind -c selectwindow 3 select 13
+bind -c selectwindow 4 select 14
+bind -c selectwindow 5 select 15
+bind -c selectwindow 6 select 16
+bind -c selectwindow 7 select 17
+bind -c selectwindow 8 select 18
+bind -c selectwindow 9 select 19
+bind - command -c selectwindow
 
 # Keybindings for managing regions, windows
 bind h focus left
@@ -24,18 +43,16 @@ bind l focus right
 bind t focus top 
 bind b focus bottom
 bind = resize =
-bind + resize +3
-bind - resize -3
 
 # Rename kill binding
 bind ^k
 bind k
 
 # Behavior
-term screen-256color
+term screen
 startup_message off
 vbell off
-altscreen on
+# altscreen off
 scrollback 30000
 defscrollback 30000
 compacthist on
@@ -43,7 +60,7 @@ nethack on
 
 # Status
 hardstatus alwayslastline
-hardstatus string '%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<%=%c'
+hardstatus string '%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<%=%H %c'
 
 # Naming windows
 dynamictitle off
@@ -52,5 +69,3 @@ dynamictitle off
 # %w: all windows, with -L and +L windows before and after, respectively
 # %=: padding
 # %{= .d}: background/foreground colour
-# %c: 24h time
-

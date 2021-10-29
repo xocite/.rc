@@ -1,0 +1,10 @@
+# Sourced from ~/.local/config/bash/bashrc
+
+# Laptop related aliases.
+alias bat='cat /sys/class/power_supply/BAT0/capacity'
+
+# Use the XDG specification.
+alias screen="screen -c $XDG_CONFIG_HOME/screen/screenrc"
+
+# This is useful when using mosh on a systemd-based distribution.
+# alias mosh='mosh --server="systemd-run --user --scope mosh-server"'
