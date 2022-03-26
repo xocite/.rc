@@ -3,7 +3,7 @@
 
 Setting up
 ----------
-These files must be placed under ``$HOME``/$XDG_CONFIG_HOME/.
+These files must be placed under ``$XDG_CONFIG_HOME``.
 
 I consider them as my starter files, each machine might have a slightly
 different config.
