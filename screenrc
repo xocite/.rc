@@ -2,15 +2,18 @@
 shelltitle bash
 screen -t root 0 //group
 select 0
-screen -t local 1 //group
-screen -t local 2
+screen -t admin 1 //group
+screen -t admin 2 bash -c "su -l admin"
 select 0
-screen -t mail 3 //group
-screen -t local 4 
+screen -t jiff 3 //group
+screen -t jiff 4 
 select 0
-screen -t remote 5 //group
-screen -t remote 6
-select 2
+screen -t container 5 //group
+screen -t container 6
+select 0
+screen -t remote 7 //group
+screen -t remote 8
+select 4
 
 # Keybindings for local sessions
 bindkey "^[[1;5D" prev # ctrl-left 
@@ -49,7 +52,8 @@ bind ^k
 bind k
 
 # Behavior
-term screen
+term screen-256color
+
 startup_message off
 vbell off
 # altscreen off
@@ -59,7 +63,7 @@ compacthist on
 nethack on
 
 # Status
-hardstatus alwayslastline
+hardstatus firstline
 hardstatus string '%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<%=%H %c'
 
 # Naming windows
