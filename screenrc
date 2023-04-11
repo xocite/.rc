@@ -57,10 +57,11 @@ term screen-256color
 startup_message off
 vbell off
 # altscreen off
-scrollback 30000
-defscrollback 30000
+scrollback 300000
+defscrollback 300000
 compacthist on
 nethack on
+#mousetrack on
 
 # Status
 hardstatus firstline

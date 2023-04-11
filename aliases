@@ -7,4 +7,8 @@ alias bat='cat /sys/class/power_supply/BAT0/capacity'
 alias screen="screen -c $XDG_CONFIG_HOME/screen/screenrc"
 
 # This is useful when using mosh on a systemd-based distribution.
-# alias mosh='mosh --server="systemd-run --user --scope mosh-server"'
+alias mosh-sd='mosh --server="systemd-run --user --scope mosh-server"'
+
+# This helps to make MPD run locally.
+alias mpd="mpd ~/.local/config/mpd/mpd.conf"
+alias mpdk="mpd --kill ~/.local/config/mpd/mpd.conf"

@@ -8,7 +8,6 @@ umask 0027
 
 # Environment variables.
 EDITOR=vim
-#HISTCONTROL=ignoredups:ignorespace
 HISTCONTROL=ignoreboth
 HISTFILESIZE=infinite
 HISTSIZE=infinite
@@ -17,8 +16,8 @@ XDG_DATA_HOME=$HOME/.local/share # see [1]
 XDG_CONFIG_HOME=$HOME/.local/config
 XDG_STATE_HOME=$HOME/.local/state
 PATH=$HOME/binary:${PATH}
-
 PASSWORD_STORE_DIR=$HOME/.local/config/pass
+PERL5LIB=$HOME/source/git-2.35.1:$HOME/source/git-2.35.1/contrib/mw-to-git
 
 # Aliases are stored in a separate file.
 source ~/.local/config/bash/aliases
@@ -35,6 +34,18 @@ c_reset="$(tput sgr0)"
 c_blue="$(tput setaf 4)"
 c_green="$(tput setaf 2)"
 PS1="\w\n\[$c_green\]\A \h \u \!\[$c_reset\] \$ "
+
+source /usr/share/bash-completion/completions/fzf
+source /usr/share/fzf/key-bindings.bash
+
+# Coloured `ls`.
+export dircolors
+
+# Don't require me to exit the pager if there is enough room.
+export LESS="$LESS -FX"
+
+# Save the SSH agent so we don't have to constantly type key passwords.
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
 
 # Links
 # [1]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
