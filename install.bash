@@ -24,7 +24,7 @@ for file in "${FILES[@]}"; do
 done
 
 # Update the base bashrc to source the new file.
-echo << EOF > "${HOME}/.bashrc"
+cat << EOF > "${HOME}/.bashrc"
 # Read ~/.bash_profile even though this is an interactive session.
 
 if [[ -e ~/.bash_profile ]]; then
@@ -36,7 +36,7 @@ if [[ -n "$XDG_CONFIG_HOME" ]]; then
 fi
 EOF
 
-echo << EOF > "${HOME}/.bash_profile"
+cat << EOF > "${HOME}/.bash_profile"
 if [[ -f ~/.profile ]]; then
   . ~/.profile
 fi
