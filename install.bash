@@ -6,12 +6,13 @@ BACKUP_DIR=$(mktemp --directory --tmpdir=${HOME})
 FILES=(".bash_profile" ".bashrc" ".profile" ".screenrc" ".vimrc")
 
 # Create directories.
-mkdir -p "${XDG_CONFIG_HOME}"/{bash,screen,vim}
+mkdir -p "${XDG_CONFIG_HOME}"/{bash,screen,vim} ${HOME}/binary
 
 # Move repo files to destination.
 mv -i -v "${PWD}/aliases" "${XDG_CONFIG_HOME}/bash/aliases"
 mv -i -v "${PWD}/bash_profile" "${XDG_CONFIG_HOME}/bash/bash_profile"
 mv -i -v "${PWD}/bashrc" "${XDG_CONFIG_HOME}/bash/bashrc"
+mv -i -v "${PWD}/editor" "${HOME}/binary"
 mv -i -v "${PWD}/screenrc" "${XDG_CONFIG_HOME}/screen/screenrc"
 mv -i -v "${PWD}/vimrc" "${XDG_CONFIG_HOME}/vim/vimrc"
 
