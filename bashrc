@@ -12,12 +12,8 @@ HISTCONTROL=ignoreboth
 HISTFILESIZE=infinite
 HISTSIZE=infinite
 HISTTIMEFORMAT="%F %T "
-XDG_DATA_HOME=$HOME/.local/share # see [1]
-XDG_CONFIG_HOME=$HOME/.local/config
-XDG_STATE_HOME=$HOME/.local/state
 PATH=$HOME/binary:${PATH}
 PASSWORD_STORE_DIR=$HOME/.local/config/pass
-PERL5LIB=$HOME/source/git-2.35.1:$HOME/source/git-2.35.1/contrib/mw-to-git
 
 # Aliases are stored in a separate file.
 source ~/.local/config/bash/aliases
