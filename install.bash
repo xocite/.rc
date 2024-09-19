@@ -33,7 +33,7 @@ if [[ -e ~/.bash_profile ]]; then
 fi
 
 if [[ -n "$XDG_CONFIG_HOME" ]]; then
-  . "${XDG_CONFIG_HOME}/bash/bashrc
+  . "${XDG_CONFIG_HOME}/bash/bashrc"
 fi
 EOF
 
