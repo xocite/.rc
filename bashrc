@@ -31,8 +31,13 @@ c_blue="$(tput setaf 4)"
 c_green="$(tput setaf 2)"
 PS1="\w\n\[$c_green\]\A \h \u \!\[$c_reset\] \$ "
 
-source /usr/share/bash-completion/completions/fzf
-source /usr/share/fzf/key-bindings.bash
+# Load completions.
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+  . /usr/share/bash-completion/bash_completion
+
+if [ -f "/usr/share/doc/fzf/examples/key-bindings.bash" ]; then
+	source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
 
 # Coloured `ls`.
 export dircolors
