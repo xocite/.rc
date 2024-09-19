@@ -28,18 +28,18 @@ done
 cat << EOF > "${HOME}/.bashrc"
 # Read ~/.bash_profile even though this is an interactive session.
 
-if [[ -e ~/.bash_profile ]]; then
+if [[ -e "${HOME}/.bash_profile" ]]; then
   . "${HOME}/.bash_profile"
 fi
 
-if [[ -n "$XDG_CONFIG_HOME" ]]; then
+if [[ -e "${XDG_CONFIG_HOME}/bash/bashrc" ]]; then
   . "${XDG_CONFIG_HOME}/bash/bashrc"
 fi
 EOF
 
 cat << EOF > "${HOME}/.bash_profile"
-if [[ -f ~/.profile ]]; then
-  . ~/.profile
+if [[ -f ${HOME}/.profile ]]; then
+  . "${HOME}/.profile"
 fi
 EOF
 
