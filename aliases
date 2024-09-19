@@ -12,3 +12,18 @@ alias mosh-sd='mosh --server="systemd-run --user --scope mosh-server"'
 # This helps to make MPD run locally.
 alias mpd="mpd ~/.local/config/mpd/mpd.conf"
 alias mpdk="mpd --kill ~/.local/config/mpd/mpd.conf"
+
+# Use fzf with pass.
+alias pfz='/home/jiff/binary/passfzf'
+
+# Change ls defaults.
+export LS_OPTIONS='--color=auto --human-readable --time-style=iso'
+eval "$(dircolors)"
+alias ls='ls $LS_OPTIONS'
+alias ll='ls $LS_OPTIONS -l'
+alias l='ls $LS_OPTIONS -lA'
+#
+# Avoid common mistakes.
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
