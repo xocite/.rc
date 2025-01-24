@@ -3,13 +3,13 @@
 # Laptop related aliases.
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
 
-# Use the XDG specification.
+# Use the XDG specification for screen.
 alias screen="screen -c $XDG_CONFIG_HOME/screen/screenrc"
 
 # This is useful when using mosh on a systemd-based distribution.
 alias mosh-sd='mosh --server="systemd-run --user --scope mosh-server"'
 
-# This helps to make MPD run locally.
+# Run and kill a local instance of Music Player Daemon.
 alias mpd="mpd ~/.local/config/mpd/mpd.conf"
 alias mpdk="mpd --kill ~/.local/config/mpd/mpd.conf"
 
@@ -22,8 +22,11 @@ eval "$(dircolors)"
 alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
-#
+
 # Avoid common mistakes.
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+# Bash 100x engineer
+alias r='fc -s'

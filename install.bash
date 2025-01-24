@@ -6,7 +6,14 @@ BACKUP_DIR=$(mktemp --directory --tmpdir=${HOME})
 FILES=(".bash_profile" ".bashrc" ".profile" ".screenrc" ".vimrc")
 
 # Create directories.
-mkdir -p "${XDG_CONFIG_HOME}"/{bash,screen,vim} ${HOME}/binary
+mkdir -p ${XDG_CONFIG_HOME}/{bash,screen,vim} ${HOME}/binary
+
+# Move original files to backup dir.
+for file in "${FILES[@]}"; do
+  if [ -f "$file" ]; then
+    mv -v "$file" "${BACKUP_DIR}"
+  fi
+done
 
 # Move repo files to destination.
 cp -i -v "${PWD}/aliases" "${XDG_CONFIG_HOME}/bash/aliases"
@@ -16,32 +23,6 @@ cp -i -v "${PWD}/editor" "${HOME}/binary"
 cp -i -v "${PWD}/profile" "${HOME}/.profile"
 cp -i -v "${PWD}/screenrc" "${XDG_CONFIG_HOME}/screen/screenrc"
 cp -i -v "${PWD}/vimrc" "${XDG_CONFIG_HOME}/vim/vimrc"
-
-# Move original files to backup dir.
-for file in "${FILES[@]}"; do
-  if [ -f "$file" ]; then
-    mv -v "$file" "${BACKUP_DIR}"
-  fi
-done
-
-# Update the base bashrc to source the new file.
-cat << EOF > "${HOME}/.bashrc"
-# Read ~/.bash_profile even though this is an interactive session.
-
-if [[ -e "${HOME}/.bash_profile" ]]; then
-  . "${HOME}/.bash_profile"
-fi
-
-if [[ -e "${XDG_CONFIG_HOME}/bash/bashrc" ]]; then
-  . "${XDG_CONFIG_HOME}/bash/bashrc"
-fi
-EOF
-
-cat << EOF > "${HOME}/.bash_profile"
-if [[ -f ${HOME}/.profile ]]; then
-  . "${HOME}/.profile"
-fi
-EOF
 
 echo "Configuration files have been moved to ${XDG_CONFIG_HOME}."
 echo "Original files have been moved to ${BACKUP_DIR}."
