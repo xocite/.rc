@@ -61,7 +61,9 @@ scrollback 300000
 defscrollback 300000
 compacthist on
 nethack on
-#mousetrack on
+mousetrack off
+verbose on
+zombie kr
 
 # Status
 hardstatus alwayslastline
