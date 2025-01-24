@@ -3,7 +3,7 @@ shelltitle bash
 screen -t root 0 //group
 select 0
 screen -t admin 1 //group
-screen -t admin 2 bash -c "su -l admin"
+screen -t admin 2 
 select 0
 screen -t jiff 3 //group
 screen -t jiff 4 
@@ -64,7 +64,7 @@ nethack on
 #mousetrack on
 
 # Status
-hardstatus firstline
+hardstatus alwayslastline
 hardstatus string '%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<%=%H %c'
 
 # Naming windows

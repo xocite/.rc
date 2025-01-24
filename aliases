@@ -30,3 +30,10 @@ alias mv='mv -i'
 
 # Bash 100x engineer
 alias r='fc -s'
+
+# Fuzzy search for passwords.
+alias pfz="passfzf"
+alias pofz="passfzf otp"
+
+alias ls="ls --color=auto --human-readable"
+alias ll="ls -la --human-readable"
